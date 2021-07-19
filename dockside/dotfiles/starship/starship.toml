@@ -1,0 +1,34 @@
+[battery]
+format = "[$symbol](style) "
+
+[directory]
+format = "[ $path]($style)[$read_only]($read_only_style) [❯]($style) "
+style = "bright-yellow"
+
+[git_branch]
+style = "red"
+format =	"[$symbol$branch]($style) "
+
+[package]
+format = "[$symbol$version]($style) [❯]($style) "
+
+[git_status]
+style = "bold red"
+format = '([$all_status ]($style))([\[$ahead_behind\] ❯]($style)) '
+ahead = "+${count}"
+diverged = "+${ahead_count}-${behind_count}"
+behind = "-${count}"
+
+deleted = "-"
+untracked = "%%"
+modified="*"
+staged = "+"
+
+[nodejs]
+symbol=" "
+
+[python]
+format = '[${symbol}(${virtualenv} )(\($version\))]($style) [❯]($style) '
+style = 'bright-blue'
+symbol = ' '
+

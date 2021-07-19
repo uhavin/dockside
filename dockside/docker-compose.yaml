@@ -1,0 +1,25 @@
+services:
+  dockside:
+    image: dockside/base
+    hostname: dockside
+    user: ${UID:-1000}:${GID:-1000}
+    build:
+      context: .
+      dockerfile: ./.docker/base/Dockerfile
+      args:
+        user: ${UBUNTU_USERNAME}
+        git_user_name: ${GIT_USER_NAME}
+        git_user_email: ${GIT_USER_EMAIL}
+        timezone: ${TIMEZONE}
+        host_dotfiles_dir: ${HOST_DOTFILES_DIR}
+    environment:
+      TERM: xterm-256color
+    volumes:
+      - ${HOST_DOTFILES_DIR}/tmux/.tmux.conf:/home/niels/.tmux.conf
+      - ${HOST_DOTFILES_DIR}/nvim:/home/niels/.config/nvim
+      - ${HOST_DOTFILES_DIR}/starship/starship.toml:/home/niels/.config/starship.toml
+      - nvim_undo:/home/niels/.local/nvim/undo
+
+volumes:
+  nvim_undo:
+

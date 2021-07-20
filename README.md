@@ -1,6 +1,7 @@
 # Dockside - a Docker based IDE
 
 ## Directory layout
+```
 .
 ├── .docker
 │   ├── base
@@ -20,3 +21,4 @@
 │   └── zsh
 │       └── .zshrc
 └── .env
+```
